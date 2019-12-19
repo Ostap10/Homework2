@@ -17,9 +17,9 @@ split/2
 split(BinText, Separator) ->
   split(BinText, Separator, Separator, <<>>, []).
 
-split(<<>>, Separator, _,  Word ,NewList) ->
-  Buf = clean(Word, Separator),
-  lists:reverse([Buf | NewList]);
+split(<<>>, _Separator, _,  Word ,NewList) ->
+ % Buf = clean(Word, Separator),
+  lists:reverse([Word | NewList]);
 
 split(BinText, Separator, <<>>, Word, NewList) ->
    Buf = clean(Word, Separator),
